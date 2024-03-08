@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>SrsApp</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_importmap_tags %>
+
+
+</head>
+<style type="text/css">
+  .logo-img {
+    height: 70px; /* Adjust the height as needed */
+    width: auto; /* Automatically adjust width to maintain aspect ratio */
+  }
+</style>
+<body>
+  <% if user_signed_in? %>
+  <nav class="bg-blue-500 shadow py-4">
+    <div class="container mx-auto flex items-center justify-between">
+      <!-- Left corner: Logo -->
+      <div class="flex items-center flex-shrink-0 text-white mr-6 text-2xl" >
+        Dashboard
+        <!-- <#%= image_tag("pngwing.com.png", alt: "Logo", class: "logo-img") %> -->
+        </div>
+
+
+        <!-- Center: Navigation links -->
+        <div class="lg:flex lg:justify-center lg:items-center">
+          <a href="<%= root_path %>" class="text-lg text-white hover:text-gray-200 mr-4">Home</a>
+          <a href="<%= employees_path %>" class="text-lg text-white hover:text-gray-200 mr-4">Employee</a>
+
+        </div>
+        <a href="#" class="text-lg text-white hover:text-gray-200">Welcome <%= current_user&.email %></a>
+        <!-- Right corner: Signout button -->
+        <div class="flex items-center">
+          <%= button_to "Sign out", destroy_user_session_path, method: :delete, class: "bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>
+        </div>
+
+      </div>
+    </nav>
+    <% else %>
+    <nav>
+      <nav class=" bg-transparent">
+        <div class="container mx-auto flex items-center justify-between">
+          <!-- Left corner: Logo -->
+          <div class="flex items-center flex-shrink-0  mr-6 text-4xl" >
+            <span style="color: #51D0F0;">Shad</span><span style="color:#4066AD;">Box</span>
+            <!-- <#%= image_tag("pngwing.com.png", alt: "Logo", class: "logo-img") %> -->
+            </div>
+           <div class="flex gap-10 text-xl ">
+            <div class="hover:text-blue-500">Home 
+            </div>
+            <div class="hover:text-blue-500">Company
+            </div>
+           <div class="hover:text-blue-500">Marktplace
+           </div>
+            <div class="hover:text-blue-500">features
+           </div>
+            <div class="hover:text-blue-500">Team
+           </div>
+            <div class="hover:text-blue-500">Contact
+           </div>
+
+           </div>
+
+
+            <div class="flex items-center flex-shrink-0 text-white mr-6 text-2xl" >
+
+              <%= button_to "Sign in", new_user_session_path, class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>    </div>
+
+            </div>
+          </nav>
+
+          <%end%>
+          <p class="notice"><%= notice %></p> 
+          <p class="alert"><%= alert %></p>
+          <main class="flex w-full">
+            <%= yield %>
+          </main>
+        </body>
+        </html>

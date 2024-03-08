@@ -1,0 +1,35 @@
+<%= form_with(model: employee, url: educational_info_employee_path(employee), method: :put) do |form| %>
+  <!-- Educational Info Fields -->
+  <div class="field">
+    <%= form.label :degree %>
+    <%= form.text_field :degree %>
+  </div>
+  <div class="field">
+    <%= form.label :field_of_study %>
+    <%= form.text_field :field_of_study %>
+  </div>
+  <div class="field">
+    <%= form.label :university %>
+    <%= form.text_field :university %>
+  </div>
+  <div class="field">
+    <%= form.label :graduation_year %>
+    <%= form.number_field :graduation_year %>
+  </div>
+  <div class="field">
+    <%= form.label :gpa %>
+    <%= form.text_field :gpa %>
+  </div>
+  <div class="field">
+    <%= form.label :additional_degrees %>
+    <%= form.text_field :additional_degrees %>
+  </div>
+  <div class="field">
+    <%= form.label :educational_history %>
+    <%= form.text_area :educational_history %>
+  </div>
+  <!-- Submit Button -->
+  <div class="actions">
+    <%= form.submit 'Save Educational Info' %>
+  </div>
+<% end %>

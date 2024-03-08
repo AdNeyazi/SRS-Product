@@ -1,0 +1,26 @@
+<h1 class="text-3xl font-bold mb-4">Verifications</h1>
+
+<% if @verifications.any? %>
+  <div class="overflow-x-auto">
+    <table class="table-auto w-full border-collapse border">
+      <thead>
+        <tr>
+          <th class="border px-4 py-2">ID</th>
+          <th class="border px-4 py-2">Status</th>
+          <!-- Add more columns as needed -->
+        </tr>
+      </thead>
+      <tbody>
+        <% @verifications.each do |verification| %>
+          <tr>
+            <td class="border px-4 py-2"><%= verification.id %></td>
+            <td class="border px-4 py-2"><%= verification.status %></td>
+            <!-- Add more columns as needed -->
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+<% else %>
+  <p class="mt-4">No verifications found.</p>
+<% end %>

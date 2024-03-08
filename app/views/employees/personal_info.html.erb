@@ -1,0 +1,25 @@
+<h1>Edit Personal Information</h1>
+<%= form_for @employee, url: update_personal_info_employee_path(@employee), method: :patch do |f| %>
+  <%= f.label :birthdate %>
+  <%= f.date_field :birthdate %>
+
+  <%= f.label :address %>
+  <%= f.text_field :address %>
+
+  <%= f.label :gender %>
+  <%= f.text_field :gender %>
+
+  <%= f.label :marital_status %>
+  <%= f.text_field :marital_status %>
+
+  <%= f.label :nationality %>
+  <%= f.text_field :nationality %>
+
+  <%= f.label :emergency_contact %>
+  <%= f.text_field :emergency_contact %>
+
+  <%= f.label :emergency_contact_relationship %>
+  <%= f.text_field :emergency_contact_relationship %>
+
+  <%= f.submit "Update Personal Info" %>
+<% end %>

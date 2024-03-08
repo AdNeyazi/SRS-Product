@@ -1,0 +1,21 @@
+<%= form_with(model: [@employee, @verification]) do |form| %>
+  <% if @verification.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@verification.errors.count, "error") %> prohibited this verification from being saved:</h2>
+      <ul>
+        <% @verification.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :status %>
+    <%= form.select :status, Verification.statuses.keys.map { |status| [status.titleize, status] }, {}, class: "form-control" %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

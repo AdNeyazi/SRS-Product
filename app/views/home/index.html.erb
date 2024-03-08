@@ -1,0 +1,82 @@
+
+<div class="flex container mx-32 my-4">
+ <!--  <div class="bg-white flex flex-col justify-center items-center py-10 shadow-lg">
+    <% if user_signed_in? %> 
+      <div class="mb-4 text-center">Welcome <%= current_user.email %></div>
+      <br>
+      <h1>Role: <b><%= current_user.role=%></b></h1>  
+    <% else %>
+      <%= button_to "Sign in", new_user_session_path, class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" %> 
+    <% end %>
+
+    <h1 class="text-center px-5 text-blue-600 text-4xl font-bold mt-10">
+        Hello world!
+    </h1>
+  </div> -->
+
+
+<div class=" p-8" style="width: 40%; overflow-y: auto; border-right: 1px solid #e2e8f0; height: 100vh;">
+  <div class="flex" style="column-gap: 30px;">
+    <h1 class="mt-2">Search Employee</h1>
+
+    <% if current_user&.company? %>
+      <button class="border py-2 px-4 rounded-lg ml-4" style="background-color: #CBD5E1;">
+        <%= link_to 'New employee', new_employee_path %>
+      </button>
+    <% end %>
+  </div>
+
+<div class="flex items-center border border-gray-300 rounded-lg mt-4" style="width:85%;">
+  <input type="text" id="searchInput" placeholder="Search..." class="outline-none flex-grow">
+  <button id="searchButton" class="px-4 bg-blue-500 py-2 rounded-lg"><svg fill="#000000" height="30px" width="30px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+   viewBox="0 0 488.4 488.4" xml:space="preserve">
+<g>
+  <g>
+    <path d="M0,203.25c0,112.1,91.2,203.2,203.2,203.2c51.6,0,98.8-19.4,134.7-51.2l129.5,129.5c2.4,2.4,5.5,3.6,8.7,3.6
+      s6.3-1.2,8.7-3.6c4.8-4.8,4.8-12.5,0-17.3l-129.6-129.5c31.8-35.9,51.2-83,51.2-134.7c0-112.1-91.2-203.2-203.2-203.2
+      S0,91.15,0,203.25z M381.9,203.25c0,98.5-80.2,178.7-178.7,178.7s-178.7-80.2-178.7-178.7s80.2-178.7,178.7-178.7
+      S381.9,104.65,381.9,203.25z"/>
+  </g>
+</g>
+</svg></button>
+</div>
+<div class="mt-4">
+  <% @employees.each do |employee| %>
+    <div class="flex items-center justify-between">
+      <span class="employee-name"><%= employee.name %></span>
+     <%= link_to 'Show Details', employee_path(employee), class: " mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %>
+    </div>
+  <% end %>
+</div>
+
+
+
+</div>
+
+<div style="margin-left: 10px;">
+  <h1 class="text-2xl" style="margin-left: 10px;">Welcome to your work place</h1>
+  <div class="border mt-4 ml-4 rounded-lg shadow-lg" style="background-color:#F5F1FB; ">
+    <div class="px-4 py-4">
+      <span class="font-bold">Recent Activity </span>
+      <p class=""> Display a feed of recent activities relevant to the user, such as recent searches, documents uploaded, or any updates on the verification process.</p>
+      <button class="border py-2 px-4 mt-2 rounded-lg" style="background-color:#4A60F9;">Show activity</button>
+    </div>
+  </div>
+  </div>
+</div>
+<script type="text/javascript">
+   document.getElementById('searchButton').addEventListener('click', function() {
+    var input = document.getElementById('searchInput').value.toLowerCase();
+    var employeeNames = document.querySelectorAll('.employee-name');
+    
+    employeeNames.forEach(function(name) {
+      var employee = name.textContent.trim().toLowerCase();
+      if (employee.includes(input)) {
+        name.parentNode.style.display = 'flex';
+      } else {
+        name.parentNode.style.display = 'none';
+      }
+    });
+  });
+
+</script>
