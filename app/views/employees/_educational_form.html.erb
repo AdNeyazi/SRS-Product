@@ -1,35 +1,43 @@
-<%= form_with(model: employee, url: educational_info_employee_path(employee), method: :put) do |form| %>
+<!-- app/views/employees/_educational_form.html.erb -->
+<%#= form_with(model: employee, url: educational_info_employee_path(employee), method: :put) do |form| %>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+<div class="container mx-auto bg-white shadow-lg p-6 mt-4 rounded-lg">
+  <h2 class="text-xl font-semibold mb-4">Educational Information</h2>
+
+
+<%= form_with(model: employee, url: employees_path, method: :post) do |form| %>
   <!-- Educational Info Fields -->
+   <div class="grid grid-cols-2 gap-4">
   <div class="field">
-    <%= form.label :degree %>
-    <%= form.text_field :degree %>
+    <%= form.label :degree, class: "block text-sm font-medium text-gray-700" %>
+    <%= form.text_field :degree, class: "mt-1 p-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" %>
   </div>
   <div class="field">
-    <%= form.label :field_of_study %>
-    <%= form.text_field :field_of_study %>
+    <%= form.label :field_of_study, class: "block text-sm font-medium text-gray-700" %>
+    <%= form.text_field :field_of_study, class: "mt-1 p-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" %>
   </div>
   <div class="field">
-    <%= form.label :university %>
-    <%= form.text_field :university %>
+    <%= form.label :university, class: "block text-sm font-medium text-gray-700" %>
+    <%= form.text_field :university, class: "mt-1 p-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"  %>
   </div>
   <div class="field">
-    <%= form.label :graduation_year %>
-    <%= form.number_field :graduation_year %>
+    <%= form.label :graduation_year, class: "block text-sm font-medium text-gray-700" %>
+    <%= form.number_field :graduation_year, class: "mt-1 p-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" %>
   </div>
   <div class="field">
     <%= form.label :gpa %>
-    <%= form.text_field :gpa %>
+    <%= form.text_field :gpa,class: "mt-1 p-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" %>
   </div>
   <div class="field">
-    <%= form.label :additional_degrees %>
-    <%= form.text_field :additional_degrees %>
+    <%= form.label :additional_degrees, class: "block text-sm font-medium text-gray-700" %>
+    <%= form.text_field :additional_degrees, class: "mt-1 p-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" %>
   </div>
   <div class="field">
-    <%= form.label :educational_history %>
-    <%= form.text_area :educational_history %>
+    <%= form.label :educational_history, class: "block text-sm font-medium text-gray-700" %>
+    <%= form.text_area :educational_history, class: "mt-1 p-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" %>
   </div>
   <!-- Submit Button -->
-  <div class="actions">
-    <%= form.submit 'Save Educational Info' %>
+   <div class="text-right mt-4">
+    <%= form.submit 'Save Educational Info', class: "px-4 py-2 bg-indigo-600 text-white rounded-md shadow-md hover:bg-indigo-700"  %>
   </div>
 <% end %>

@@ -1,7 +1,23 @@
 <!-- app/views/employees/new.html.erb -->
-<div class="max-w-md mx-auto mt-8 p-6 bg-white rounded-lg ">
- <h1 class="text-2xl font-semibold mb-4 text-center">New Employee</h1>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+<div class="w-full mx-auto  bg-white rounded-lg ">
+ <h1 class="text-2xl font-semibold mb-2 text-center p-4 ">New Employee Information</h1>
+ <div class="w-full text-white " style="background-color:#090979">
+<div class="flex justify-center items-center space-x-4">
+   <span  class="block  mb-2 text-sm font-medium text-white dark:text-white">Personal information</span> <span class="block mb-2  text-sm font-medium text-white dark:text-white">Educational Information
+   </span>
+ <span  class="block  mb-2 text-sm font-medium text-white dark:text-white">Upload Documents</span>
+ </div>
+<div class="flex justify-center items-center pb-2 mx-56">
+  <input id="large-range" type="range" value="33" class="flex-1 bg-gray-200 rounded-lg appearance-none cursor-pointer range-lg dark:bg-gray-700">
+</div>
+</div>
+
+
+
 
 <%= render 'form', employee: @employee %>
-
+<%= render 'personal_form', employee: @employee %>
+<%= render 'educational_form', employee: @employee %>
+<%= render 'upload_form', employee: @employee %>
 </div>
